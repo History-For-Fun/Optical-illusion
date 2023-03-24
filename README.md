@@ -1,17 +1,36 @@
-/*
-// var favotiteanimals  = [the list is here];
-// My favotiteanimals are "panda", "british bull dogs", "cat", "monkey","lion", "tiger" 
-var favotiteanimals = ["panda", "british bull dogs", "cat", "monkey","lion", "tiger" ];
-// the color red
-fill(255, 0, 0);
+var diameter = 600;
+var decreaseAmt = 0.02;
+var scaleF = 1.0;
 
 
- var favotite_animals_num = 0;
-// the loop 
-  while (favotite_animals_num  < favotiteanimals.length){
-      text(favotiteanimals[favotite_animals_num], 10,           30+favotite_animals_num*30);
-      favotite_animals_num++;
-   }
+var drawWhiteCircle = function(diameter) {
+fill(255, 255, 255);
+ellipse(0, 0, diameter, diameter);
 
+};
 
-*/
+var drawBlackCircle = function(diameter) {
+fill(0, 0, 0);
+ellipse(0, 0, diameter, diameter);
+};
+
+background(255, 255, 255);
+
+while(scaleF > 0.0) {
+//black circles
+pushMatrix();
+translate(200, 200);
+scale(scaleF);
+drawBlackCircle(diameter);
+scaleF -= decreaseAmt;
+popMatrix();
+
+//white circles
+pushMatrix();
+translate(200, 200);
+scale(scaleF);
+drawWhiteCircle(diameter);
+scaleF -= decreaseAmt;
+popMatrix();
+
+}
